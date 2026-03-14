@@ -1,0 +1,39 @@
+# Maven
+/target/
+**/target/
+*.log
+
+# IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Maven wrapper
+/.mvn/wrapper/maven-wrapper.jar
+
+# JetBrains
+out/
+
+# Generated files
+**/generated-sources/
+**/generated-test-sources/
+
+# Eclipse
+.settings/
+.project
+
+# Others
+*.tmp
+*.swp
