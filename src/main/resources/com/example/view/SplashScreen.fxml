@@ -1,16 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="300.0" prefWidth="500.0" style="-fx-background-color: #2c3e50; -fx-background-radius: 15;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="350.0" prefWidth="550.0" style="-fx-background-color: #1a1a2e; -fx-background-radius: 25; -fx-border-color: #34495e; -fx-border-radius: 25; -fx-border-width: 1;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.controller.SplashController">
    <children>
-      <Label layoutX="128.0" layoutY="110.0" text="STUDENT MS" textFill="WHITE">
+      <Circle fill="#3498db" layoutX="550.0" layoutY="0.0" opacity="0.1" radius="150.0" />
+      <Circle fill="#27ae60" layoutX="0.0" layoutY="350.0" opacity="0.1" radius="100.0" />
+
+      <VBox alignment="CENTER" layoutX="50.0" layoutY="50.0" prefHeight="250.0" prefWidth="450.0" spacing="20.0">
+         <children>
+            <StackPane prefHeight="80.0" prefWidth="80.0">
+               <children>
+                  <Circle fill="TRANSPARENT" radius="40.0" stroke="#27ae60" strokeType="INSIDE" strokeWidth="3.0" />
+                  <Label text="S" textFill="#27ae60">
+                     <font>
+                        <Font name="System Bold" size="45.0" />
+                     </font>
+                  </Label>
+               </children>
+            </StackPane>
+
+            <VBox alignment="CENTER" spacing="5.0">
+               <children>
+                  <Label text="SMS PRO" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="38.0" />
+                     </font>
+                  </Label>
+                  <Label text="MANAGEMENT ECOSYSTEM" textFill="#95a5a6">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+
+            <Region VBox.vgrow="ALWAYS" />
+
+            <VBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <Label fx:id="lblStatus" text="Synchronizing Database..." textFill="#bdc3c7">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  
+                  <ProgressBar fx:id="progressBar" prefHeight="6.0" prefWidth="350.0" progress="0.0" 
+                               style="-fx-accent: #27ae60; -fx-control-inner-background: #16213e; -fx-background-radius: 10; -fx-border-radius: 10;" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      
+      <Label layoutX="460.0" layoutY="320.0" text="v2.0.4 Premium" textFill="#5d6d7e">
          <font>
-            <Font name="System Bold" size="40.0" />
+            <Font size="10.0" />
          </font>
       </Label>
-      <Label layoutX="185.0" layoutY="165.0" text="Initializing System..." textFill="#bdc3c7" />
-      <ProgressBar layoutX="100.0" layoutY="218.0" prefWidth="300.0" style="-fx-accent: #27ae60;" />
    </children>
 </AnchorPane>

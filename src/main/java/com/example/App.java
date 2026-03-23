@@ -1,5 +1,7 @@
 package com.example;
 
+import com.example.controller.SplashController;
+
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +13,7 @@ import javafx.stage.StageStyle;
 
 public class App extends Application {
 
+    /*
     @Override
     public void start(Stage primaryStage) throws Exception {
         // 1. Load Splash Screen
@@ -31,7 +34,7 @@ public class App extends Application {
                 Platform.runLater(() -> {
                     try {
                         // 3. Load Main Form
-                        Parent mainRoot = FXMLLoader.load(getClass().getResource("/com/example/view/StudentForm.fxml"));
+                        Parent mainRoot = FXMLLoader.load(getClass().getResource("/com/example/view/MainLayout.fxml"));
                         Stage mainStage = new Stage();
                         mainStage.setScene(new Scene(mainRoot));
                         mainStage.setTitle("Student Management System");
@@ -46,6 +49,53 @@ public class App extends Application {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+        }).start();
+    }*/
+
+    @Override
+    public void start(Stage splashStage) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/view/SplashScreen.fxml"));
+        Parent root = loader.load();
+        
+        // Get the controller instance from the loader
+        SplashController controller = loader.getController();
+        
+        Scene scene = new Scene(root);
+        scene.setFill(null); // Makes corners transparent
+        splashStage.initStyle(StageStyle.TRANSPARENT);
+        splashStage.setScene(scene);
+        splashStage.show();
+
+        // Background Thread to simulate loading
+        new Thread(() -> {
+            try {
+                String[] steps = {"Loading Modules...", "Connecting Database...", "Preparing UI...", "Done!"};
+                
+                for (int i = 0; i < steps.length; i++) {
+                    final double progress = (i + 1) * 0.25;
+                    final String status = steps[i];
+                    
+                    // Update UI on the JavaFX Thread
+                    Platform.runLater(() -> {
+                        controller.setStatus(status);
+                        controller.setProgress(progress);
+                    });
+
+                    Thread.sleep(1000); // 0.8s per step
+                }
+
+                Platform.runLater(() -> {
+                    try {
+                        // Load Main Window
+                        Parent mainRoot = FXMLLoader.load(getClass().getResource("/com/example/view/MainLayout.fxml"));
+                        Stage mainStage = new Stage();
+                        mainStage.setScene(new Scene(mainRoot));
+                        mainStage.show();
+                        splashStage.close();
+                    } catch (Exception e) { e.printStackTrace(); }
+                });
+
+            } catch (InterruptedException e) { e.printStackTrace(); }
         }).start();
     }
 

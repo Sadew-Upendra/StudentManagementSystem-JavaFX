@@ -48,3 +48,42 @@
     -fx-background-color: #34495e;
     -fx-text-fill: white;
 }
+
+/* Sidebar Button Hover Animation */
+.button {
+    -fx-transition: 0.3s;
+}
+
+.button:hover {
+    -fx-background-color: #1abc9c !important; /* Emerald green on hover */
+    -fx-translate-x: 5; /* Subtle slide-to-right effect */
+}
+
+
+
+/* Sidebar Nav Button Styling */
+.button {
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+#btnDashboard:hover, #btnRegistration:hover, #btnReports:hover {
+    -fx-background-color: #34495e !important;
+    -fx-border-color: #3498db;
+    -fx-border-width: 0 0 0 5; /* Blue line on the left side on hover */
+}
+
+/* Active Button State (You can trigger this in Java) */
+.active-nav {
+    -fx-background-color: #2980b9 !important;
+}
+
+/* Table Header Fix */
+.table-view .column-header-background {
+    -fx-background-color: #2c3e50;
+    -fx-padding: 5;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}

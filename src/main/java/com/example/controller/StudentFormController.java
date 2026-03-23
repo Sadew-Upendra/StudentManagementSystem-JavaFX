@@ -26,6 +26,11 @@ public class StudentFormController {
     @FXML private TextField txtId;
     @FXML private TextField txtName;
 
+    @FXML
+    void btnPrintReportOnAction(ActionEvent event) {
+        // Your code here
+    }
+
     // Layered Architecture: Controller talks to Service
     private final StudentServiceImpl studentService = new StudentServiceImpl();
 
